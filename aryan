@@ -1,0 +1,60 @@
+#include<conio.h>
+#include<stdio.h>
+#include<string.h>
+int main() {
+    char gender[10];
+    int age;
+    int numParties;
+    int BJP = 0, CONGRESS = 0, RJD= 0;
+    printf("Enter your GENDER (Male/Female/Other): ");
+    scanf("%s", gender);
+    char name[50];
+    printf("enter name: ");
+    scanf("%s",&name);
+    printf("Enter your age: ");
+    scanf("%d", &age);
+    if (strcmp(gender, "Male") == 0 || strcmp(gender, "Female") == 0 || strcmp(gender, "Other") == 0)
+	 {
+        if (age >= 18)
+		 {
+            printf("You can vote!\n");
+            printf("Enter VOTERS: ");
+            scanf("%d", &numParties);
+            printf("FOLOWIING ARE THE PARTIES:\n");
+            printf("1. CONGRESS\n2. BJP\n3. RJD\n");
+            for (int i = 0; i < numParties; i++) 
+			{
+                int vote;
+                printf("enter a number for whom you want to vote /n(1 for CONGRESS, 2 for BJP, 3 for RJD): ");
+                scanf("%d", &vote);
+                switch (vote) {
+                    case 1:
+                   CONGRESS++;
+                    break;
+                case 2:
+                        BJP++;
+                    break;
+                    case 3:
+                  RJD++;
+              break;
+                 default:
+              printf("WRONG VOTE PLEASE VOTE AGAIN.\n");
+                i--; 
+                }
+            }
+       printf("\nFOLLOWING ARE THE RESULTS:\n");
+       printf("CONGRESS: %d votes\n", CONGRESS);
+       printf("BJP: %d votes\n", BJP);
+     printf("RJD: %d votes\n", RJD);
+        } else 
+		{
+            printf("INVALID INPUT,AGE OF 18 CANT VOTE\n");
+        }
+    }
+	 else 
+	{
+        printf("INVALID;wrong gender input\n");
+    }
+
+    return 0;
+}
